@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Nagłówek</title>
+    <link rel="stylesheet" href="css/styl.css">
+</head>
+<body>
+    <h1>Nasza oferta</h1>
+    <script>
+        document.write('<h2>Witaj Janusz</h2>');
+        //document - obiekt
+        //. - operator elementu składowego
+        //write('<h2>Witaj Janusz</h2>')  - metoda
+        //'<h2>Witaj Janusz</h2>' - parametr
+    </script>
+    <h1>Systemy liczbowe</h1>
+    <div id="wynik"></div>
+    <div id="a">a</div>
+    <div id="b">b</div>
+    <div id="c">c</div>
+    <script>
+        var dziesietna = 15; //liczba wsystemie dziesiętnym
+        var oktalna =  017; //oktalna
+        var hex= 0xA2; //heksadecymalna
+        document.write(oktalna); //15
+        document.write(hex+"<br>"); //162
+
+//zadanie 1
+        /* Użytkownik podaje liczbę szesnastkową z klawiatury,
+        zamień ją i wyświetl w systemie dziesiętnym*/
+
+        /*var liczba = prompt("Podaj liczbę w systemie szesnastkowym");
+        document.write("Liczba w systemie szesnastkowym wynosi: "+liczba);
+        var x = "0x"+liczba;
+        console.log(typeof(x)); //string
+        x = parseInt(x);
+        console.log(typeof(x));
+        document.write("<br>W systemie dziesiętnym wynosi: "+x+"<br>");
+        document.write("("+liczba+")"+"<sub>16</sub> = ("+x+")<sub>10</sub><br>");
+        document.write("y = x<sup>2</sup> - 4ac<br>");*/
+
+//zadanie 2
+        /*
+            Użytkownik podaje z klawiatury podstawę i wysokość trójkąta. Oblicz i wyświetl ile wynosi pole
+        */
+
+        /*var blok = document.getElementById("wynik");
+        blok.style.color = "green";
+        var a = prompt("Podaj długość podstawy trójkąta");
+        var h = prompt("Podaj wysokość trójkąta");
+        var pole;
+        pole = 0.5*(a * h);
+        //pole = (a * h)/2;
+        document.write("Pole trójkąta  wynosi: " + pole + "cm<sup>2</sup>");*/
+        //blok.textContent = "Pole trójkąta wynosi: " + pole;
+
+        //blok.textContent = "Pole trójkąta wynosi: " + pole + "cm<sup>2</sup>";
+        //Pole trójkąta wynosi: 4cm<sup>2</sup>
+
+        /*blok.innerHTML = "Pole trójkąta wynosi: " + pole + "cm<sup>2</sup>";*/
+
+//zadanie 3
+        /*
+            Użytkownik podaje z klawiatury swój wiek (Janusz)
+            Użytkownik podaje z klawiatury swój wiek (Agata)
+            Oblicz średni wiek
+            Wyświetl wynik w formacie: "Średni wiek wynosi: " <wiek> "lat"
+            <> w nawiasach kwadratowych jest wynik działania
+            Średni wiek wyświetl w  kolorze czerwonym a pozostałe dane w kolorze  #FF07D2
+        */
+
+        /*var janusz = prompt("podaj wiek janusz");
+        janusz = parseFloat(janusz);
+
+        var agata = parseFloat(prompt("podaj wiek agata"));
+        var sredniWiek = (janusz + agata)/2;
+        console.log(sredniWiek);
+        a = document.getElementById("a");
+        b = document.getElementById("b");
+        c = document.getElementById("c");
+        a.style.color = "#FF07D2";
+        b.style.color = "red";
+        c.style.color = "#FF07D2";
+        a.innerHTML = "Średni wiek wynosi: ";
+        b.innerHTML = sredniWiek;
+        c.innerHTML = "lat";*/
+
+//***********************************************************************
+
+//konkatenacja +    w javaScript
+//konkatenacja .    w php
+
+        var x = prompt("Podaj x");  //2  //2.5
+        var y = prompt("Podaj y");  //3  //3
+        var z = x + y;
+        console.log(z); //23    //2.53
+
+        /*x = parseInt(x);
+        y = parseInt(y);
+        z = x + y;
+        console.log(z); //5 //5*/
+
+        x = parseFloat(x);
+        y = parseFloat(y);
+        z = x + y;
+        console.log(z); //5.5
+
+//***********************************************************************
+
+        var tekst = parseFloat(prompt("Podaj wiek"));
+        console.log(typeof(tekst));
+        //document.write(tekst);
+        //po podaniu wartośći  "Januasz" wyświetla się NaN
+        //Not a Number
+
+// ! - negacja
+
+        if(isNaN(tekst)){
+            document.write("Podałeś błędne dane!");
+        }else{
+            document.write("Twój wiek " + tekst);
+        }
+
+//*****************
+
+
+
+
+
+
+
+
+
+    </script>
+
+</body>
+</html>
