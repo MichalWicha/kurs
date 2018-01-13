@@ -1,0 +1,16 @@
+1. Użytkownik podaje z klawiatury swój wiek. Na ekranie wyświetl czy użytkownik jest pełnoletni. Wykorzystaj instrukcję warunkową (if)
+
+2. Użytkownik oblicza obwód o raz pole koła. Promień podaje z klawiatury.
+Na ekranie wyświetl w bloku (div) w następujący sposób wynik:
+Pole koła wynosi: …..
+Obwód koła wynosi:  ……
+
+3. Użytkownik podaje z klawiatury dwie wartości (x oraz y). Sprawdź czy są to liczby (isNaN).
+Trzecia wartość jaką podaje z klawiatury to znak. Może być : + , -  , * , /
+Po wpisaniu znaku wykonane zostanie działanie np. x * y (mnożenie)
+Wynik wypisz w bloku (div) w formacie:
+Wynik mnożenia wynosi: ………
+Napis Wynik mnożenia wynosi: ma być w kolorze niebieskim
+Wynik ma być w kolorze czerwonym
+Pamiętaj, że liczby mogą być zmiennoprzecinkowe lub całkowite
+Działania jakie użytkownik może wykonać to: dodawanie, odejmowanie, mnożenie, dzielenie
