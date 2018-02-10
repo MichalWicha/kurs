@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Pętle</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <script>
+        //FOR, WHILE, DO WHILE, FOREACH
+
+//###########################  FOR  ########################################
+         //var i=1; inicjalizacja, utworzenie zmiennej i przypisanie jej wartości
+        //i<5  warunek
+        //i++ uaktualnianie  inkrementacja
+        //i++ postinkrementacja
+        //++i preinkrementacja
+
+        for(var i=1; i<=5; i++){
+            document.write(i + " ");
+            document.write("* ");
+        }
+        document.write("<br>");
+
+//zad.1
+/*
+Wyświetl liczby z przedziału <10,15>
+każda wartość w nowej linii
+*/
+        for(var j=10; j<=15; j++){
+            document.write(j + "<br>");
+        }
+
+//dekrementacja
+//i-- postdekrementacja
+//--i predekrementacja
+
+//zad.2
+//wyświetl liczby z przedziału <10;4>
+
+        for(var k=10; k>=4; k--){
+            document.write(k + " ");
+        }
+
+        document.write("<br>");
+
+//zad.3
+//wyświetl liczby parzyste z przedziału <3;16>
+
+        for(i=3; i<=16; i++){
+            if(i%2==0)
+                document.write(i + " ");
+        }
+        document.write("<br>");
+
+//zad.4
+//wyświetl liczby nieparzyste z przedziału <20;4>
+
+        for(i=20; i>=4; i--){
+            if(i%2!=0){
+                document.write(i + " ");
+            }
+        }
+        document.write("<br>");
+
+//zad.5
+//wyświetl następujący ciąg  (1,TEB,3,TEB,5,TEB)
+
+        for(i=1; i<=6; i++){
+            if(i==6)
+                document.write("TEB")
+            else if(i%2==0)
+                document.write("TEB, ");
+            else
+                document.write(i + ", ");
+        }
+
+        document.write("<br>");
+
+//zad.6
+/*
+*
+**
+***
+****
+*****
+*/
+        for(i=1; i<=5; i++){
+            for(j=1; j<=i; j++){
+                document.write("*");
+            }
+            document.write("<br>");
+        }
+
+        document.write("<br>");
+
+//zad.7
+/*
+*****
+****
+***
+**
+*
+ */
+
+        for(i=5; i>=1; i--){
+            for(j=i; j>=1; j--){
+                document.write("*");
+            }
+            document.write("<br>");
+        }
+
+        document.write("<br>");
+
+//zad.8
+//Wyświetl ciąg (2,5,8,11,14,17)
+
+        for(i=2; i<=17; i=i+3){
+            document.write(i + " ");
+        }
+
+        document.write("<br>");
+
+//zad.9
+//012345
+
+        for(i=0; i<=10; i++){
+            document.write(i);
+            if(i==5)
+                break;
+        }
+        document.write("<br>");
+
+//zad.10
+//losuj 10 liczb z przedziału <50;200>
+
+        for(i=1; i<=10; i++){
+            document.write(Math.floor(Math.random() * 151 + 50) + " ");
+        }
+        document.write("<br>")
+
+ //###########################  WHILE  #####################################
+
+    var i=0;
+    while(i++ < 5){
+        document.write(i + " ");
+    }
+    document.write("<br>");
+
+//zad.11
+/*Użytkownik podaje z klawiatury dwie wartości,
+pętla będzie wykonywała się tak długo dopóki x będzie większe od y*/
+
+    /*var x=1, y=0;
+
+    while(x>y){
+         x = Number(prompt("Podaj x"));
+         y = Number(prompt("Podaj y"));
+    }
+    document.write("x=" + x + ", y=" + y + "<br>"); */
+
+//zad.12
+//Użytkownik jest pytany  o hasło tak długo dopóki nie poda hasła: "pomelo"
+    /*var haslo, hasloPoprawne="pomelo";
+    haslo = prompt("Podaj hasło");
+    while(haslo!=hasloPoprawne){
+        haslo = prompt("Podaj hasło");
+    }
+    document.write("Zgadłeś poprawnie hasło<br>");*/
+
+//########################  DO WHILE  ##############################
+
+//zad.12.1
+//Użytkownik jest pytany  o hasło tak długo dopóki nie poda hasła: "pomelo"
+
+    var pass, passCorrect="pomelo";
+    do {
+        pass = prompt("Pass?");
+    }while(pass!=passCorrect)
+    document.write("Correct password");
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

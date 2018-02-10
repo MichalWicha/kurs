@@ -1,0 +1,73 @@
+body{
+    background-color: aquamarine;
+    height: 1000px;
+    width: 1000px;
+}
+
+#baner {
+    height: 10%;
+    background-color: red;
+}
+
+#menu {
+    height: 50%;
+    width: 25%;
+    background-color: green;
+    float: left;
+}
+
+#tresc {
+    height: 50%;
+    width: 75%;
+    background-color: #0fa50f;
+    float: left;
+}
+
+#stopka {
+    height: 10%;
+    width: 100%;
+    background-color: brown;
+    float: left;
+    text-align: right;
+}
+
+.okrag {
+    list-style: circle;
+}
+
+.kwadrat {
+    list-style: square;
+}
+
+.gwiazda{
+    list-style-image: url("../jpg/star.png");
+}
+
+.puste {
+    list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.przerwa {
+    margin: 15px;
+    font-size: 20px;
+}
+
+a:link {
+    color: brown;
+}
+
+a:visited {
+    color: red;
+}
+
+a:hover {
+    color: yellow;
+}
+
+a:active {
+    color: black;
+}
