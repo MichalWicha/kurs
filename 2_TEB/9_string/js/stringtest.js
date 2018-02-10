@@ -34,11 +34,12 @@ var elSuwak = document.getElementById('suwak');
 var elPrzycisk1 = document.getElementById('przycisk1');
 var elKomunikat2 = document.getElementById('komunikat2');
 var elPozycja = document.getElementById('pozycja');
+var elKolor = document.getElementById('kolor');
 
 var imie, nazwisko, minimum;
 var poprawneImie;
 var poprawneNazwisko;
-var dlugoscNazwiska, pozycja;
+var dlugoscNazwiska, pozycja, kolor;
 
 function zamienImie(){
     imie = elImie.value;
@@ -64,10 +65,9 @@ function pozycja(){
     pozycja = elSuwak.value;
     elPozycja.innerHTML= "Pozycja suwaka: " + pozycja;
     dlugoscNazwiska = elNazwisko.value.length;
-    
     elSuwak.max = dlugoscNazwiska;
     nazwisko = elNazwisko.value;
-    nazwisko = nazwisko.slice(pozycja - 1)
+    nazwisko = nazwisko.slice(pozycja - 1);
     if(pozycja == 0){
         elKomunikat2.innerHTML = "";
     }else{
@@ -76,27 +76,33 @@ function pozycja(){
 }
 
 function blokuj(){
-   if(elNazwisko.value.length == 0){
+    if (elNazwisko.value.length == 0){
         elSuwak.disabled = true;
         elSuwak.max = elNazwisko.value.length;
         elKomunikat2.innerHTML = elNazwisko.value;
-       
-   }else{
+    }
+    else{
         elSuwak.disabled = false;
         elSuwak.max = elNazwisko.value.length;
         elKomunikat2.innerHTML = elNazwisko.value;
-   }
+    }
+}
+
+function zmienKolor(){
+    kolor = elKolor.value;
+    //console.log(kolor);
+    elKomunikat2.style.color = kolor;
 }
 
 elSuwak.disabled = true;
 elSuwak.value = "0";
-elPozycja.innerHTML = "Pozycja suwaka: " + elSuwak.value;
-
+elPozycja.innerHTML     = "Pozycja suwaka: " + elSuwak.value;
 
 elSuwak.addEventListener('change',pozycja);
 elPrzycisk.addEventListener('click',zamienImie);
 elPrzycisk1.addEventListener('click',wycinanie);
-elNazwisko.addEventListener("keyup",blokuj);
+elNazwisko.addEventListener('keyup',blokuj);
+elKolor.addEventListener('change',zmienKolor);
 
 //###################  substr  ###########################
 

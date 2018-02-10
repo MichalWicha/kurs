@@ -1,0 +1,7 @@
+#kwadrat{
+    list-style-type:square;
+}
+
+#pilka {
+    list-style-image: url(../png/pilka.png);
+}
