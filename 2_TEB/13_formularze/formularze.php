@@ -14,8 +14,9 @@
         <input type="text" name="imie" placeholder="Janusz" autofocus>
         <br><br>
         <input type="text" name="nazwisko" placeholder="Kowal"><br><br>
-        <input type="password" name='haslo'>
-        <input type='submit' name="Przycisk" value= "zatwierdz">
+        <input type="password" name='haslo' placeholder="haslo1"><br><br>
+        <input type="password" name='haslo2' placeholder="haslo2"><br><br>
+        <input type='submit' name="przycisk" value= "zatwierdz">
     </form>
 </body>
 </html>
