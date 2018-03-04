@@ -1,0 +1,17 @@
+.poprawne {
+    margin: 10px;
+    border: 1px solid #1abc1a;
+    width: 150px;
+    text-align: center;
+    border-radius: 4px;
+    background-color: rgba(0, 128, 0, 0.28);
+}
+
+.niepoprawne {
+    margin: 10px;
+    border: 1px solid rgba(209, 17, 32, 0.97);
+    width: 180px;
+    text-align: center;
+    border-radius: 4px;
+    background-color: rgba(128, 0, 10, 0.27);
+}

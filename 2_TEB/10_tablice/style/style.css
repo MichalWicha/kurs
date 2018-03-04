@@ -1,0 +1,15 @@
+body{
+    background-color: aquamarine;
+    height: 2100px;
+    width: 1000px;
+}
+
+
+
+#kwadrat {
+    list-style: square;
+}
+
+#pilka {
+    list-style-image: url("../img/pilka1.png");
+}
