@@ -5,253 +5,228 @@
     <title>Tablice</title>
 </head>
 <body>
+
     <?php
 
-##################### tablice indeksowane numerycznie WAZNE DO EGZAMINU###############################
+    //tablice indeksowane numerycznie
 
-    $kolory = array('biały', 'zielony', 'czerwony','aqua');
-    echo "Ilośc elementów w tablicy: ".count($kolory)."<br>";
-    echo "Początkowa zawartość tablicy: <br> ";
+        $kolory = array('biały', 'zielony', 'czerwony', 'aqua');
+        echo "Ilość elementów w tablicy: ".count($kolory)."<br>";
+        echo  'Początkowa zawartość tablicy: <br>';
+        $kolory[0] = 'czarny';
 
+        /*for ($i=0; $i<count($kolory); $i++):
+                $x = $i + 1;
+                echo "Element[$x]: $kolory[$i] <br>";
+        endfor;*/
 
-//    $kolory[0] = 'czarny';
-//    for ($i=0; $i<count($kolory); $i++):
-//    $y = $i +1;
-//    echo "Element[$y]:".$kolory[$i]."<br>";
-//    endfor;
+        function wyswietl($t){
+            for ($i=0; $i<count($t); $i++):
+                $x = $i + 1;
+                echo "Element[$x]: $t[$i] <br>";
+            endfor;
+        }
 
-    function tablica($v){ //funkcja uniwersalna dla wyswietlania tablic
-    for ($i=0; $i<count($v); $i++):
-    $y = $i + 1;
-    echo "Element[$y]: $v[$i] <br>";
-    endfor;
+        wyswietl($kolory);
 
-    }
+        $auta = ['Ferrari', 'Bugatti', 'Lexus'];
+        wyswietl($auta);
 
-    tablica($kolory);
+##############################  tablice asocjacyjne   ################################
 
-    $auta =['Ferrari', 'Bugatti','Lexus'];
+        $dane = array(
+            'imie' => 'Janusz',
+            'nazwisko' => 'Nowak',
+            'miasto' => 'Poznań',
+            'wiek' => 18
+        );
 
-    tablica($auta);
+        //echo $dane[0]; //błąd
+        echo $dane['imie']."<hr>";
 
-    ################### tablice asocjacyjne####################
+        $z = <<<TAB
+        Imię: $dane[imie]
+        Nazwisko: $dane[nazwisko]
+        Wiek: $dane[wiek]
+TAB;
 
-    $dane = array (
-        'imie'=>'Janusz',
-        'nazwisko'=>'Nowak',
-        'miasto'=>'Poznan',
-        'wiek'=>18
+        echo nl2br($z);
+
+##################################   FOREACH   ####################################
+
+    echo "<br>Foreach<br>";
+        foreach ($dane as $wartosc){
+            echo "Wartość: $wartosc<br>";
+        }
+
+        foreach ($dane as $klucz => $wartosc){
+            $klucz = ucfirst($klucz);
+            echo "$klucz: $wartosc<br>";
+        }
+
+##############################  TABLICA WIELOWYMIAROWA  ###########################
+
+    $cyfry = array(
+        array(1,2,3,4),
+        array(5,6,7),
+        array(8),
+        array(9,10)
     );
 
-    //echo $dane [0]; //błąd
-    echo $dane['imie']."<hr>"; //wpisujemy klucz
-
-    $z = <<<TAB
-    Imie: $dane[imie]
-    Nazwisko: $dane[nazwisko]
-    Wiek: $dane[wiek]
-TAB;
-    echo nl2br($z);
-
-########################## for each WAZNE####################
-    echo "<br>Foreach<br>";
-    foreach($dane as $wartosc){
-        echo"Wartosc: $wartosc<br>";
-    }
-
-    foreach($dane as $klucz =>$wartosc){ //=> wskazujemy wartosc tego klucza
-        ucfirst($wartosc);
-        echo "$klucz: $wartosc<br>";
-    }
-    echo "<hr>";
-########## tablica wielowymiarowa PRZYDATNE ############
-  $cyfry = array(
-      array  (1,2,3,4),
-      array  (5,6,7),
-      array  (8),
-      array  (9,10)
-  );
     foreach ($cyfry as $wartosc){
-        foreach ($wartosc as $x){ //dokopujemy sie glebiej w tablicy do drugiej tablicy
+        foreach ($wartosc as $x){
             echo "$x ";
         }
-        echo "<br>";
+        echo '<br>';
     }
 
-################# Sortowanie ##############################
+###############################    SORTOWANIE     #################################
 
+        $tab = array(10,1,5,7,48,65,78,7);
 
-$tab = array(10,1,5,7,8,33,52);
-    function cyfry($tab){
-        foreach ($tab as $cyfry){
-            echo "$cyfry ";
+        function w($tab){
+            foreach ($tab as $w):
+                echo "$w ";
+            endforeach;
+            echo "<br>";
         }
-        echo "<br>";
 
-    }
-    cyfry($tab);
- //rosnąco
+        w($tab);
 
-    sort($tab);
-    cyfry($tab);
+//rosnąco
+
+        sort($tab);
+        w($tab);
 
 //malejąco
 
-    rsort($tab);
-    cyfry($tab);
+        rsort($tab);
+        w($tab);
 
-########################################################
+###############################################################################
 
-    $tab = array('Julia','Anna','Tomek','Martyna');
+        $tab = array("Julia", "Anna", "Tomek", "Martyna");
 
-     function imiona($tab){
-        foreach ($tab as $imiona){
-            echo "$imiona ";
-        }
-        echo "<br>";
+        w($tab);
+        sort($tab);
+        w($tab);
 
-    }
+###############################################################################
 
-    imiona($tab);
-    sort($tab);
-    imiona($tab);
+        $tab = array("Julia", "anna", "Tomek", "Martyna");
 
-    ########################################################
+        w($tab);
+        sort($tab);
+        w($tab);
 
-    $tab = array('Julia','anna','Tomek','Martyna');
+#########################   SORTOWANIE TABLICY ASOCJACYJNEJ   #################
 
-    imiona($tab);
-    sort($tab);
-    imiona($tab);
-
-################### sortowanie tablicy asocjacyjnej#############
-
-
-
-    $nazwiska = array(
-        'pierwszy' =>'2nowak',
-        'drugi' =>'kowal',
-        'trzeci' =>'ananas',
-        'czwarty' =>'zajac'
-
+    $nazwiska = array (
+        //'pierwszy' => '2nowak',
+        'pierwszy' => 'nowak',
+        'drugi' => 'kowal',
+        'trzeci' => 'ananas',
+        'czwarty' => 'zając'
     );
-        function nazwiska($nazwiska){
-        foreach ($nazwiska as $n){
-            echo "$n ";
-        }
-        echo "<br>";
 
-    }
-    nazwiska($nazwiska);
-    //asort($nazwiska);  //asort do sortowania tablicy asocjacyjnejwedlug wartosci
-    //arsort($nazwiska);//w odwrotnej kolejnosci
-    //ksort($nazwiska); //wedlug wartosci indeksu czwarty bo c potemdrugi bo d itp
-    //krsort($nazwiska); //od ostatniej wartosci indeksu
-    nazwiska($nazwiska);
+        w($nazwiska);
+        //asort($nazwiska); //ananas kowal nowak zając
+        //arsort($nazwiska);  //zając nowak kowal ananas
+        //ksort($nazwiska); //zając kowal nowak ananas
+        //krsort($nazwiska); //ananas nowak kowal zając
+        w($nazwiska);
 
-#######################wyswietlanie tablicy ###################
+##############################   WYŚWIETLANIE TABLICY   #########################
 
-    $tab4 = array(2,1,56,'Janusz',3,8);
+    $tab4 = array(2,1,'Janusz',3.5,8);
     echo "<br>";
 
     var_dump($tab4);
 
-    echo "<br>";
+    echo '<br>';
 
     print_r($tab4);
 
-    echo "<pre";
+    echo '<pre>';
         print_r($tab4);
-    echo "</pre>";
+    echo '</pre>';
 
-//zad.1 uzytkownik z formularza wysyla dane: imie, nazwisko, wiek,miasto. zapisz dane w tablicy asocjacyjnej, klucze nazwij jak powyzej.
-//utworz funkcje zawierajaca heredoc i wyswietlajaca informacje ponizej : jesteś[imie] [nazwisko] masz [wiek]lat, mieszkasz w [miasto]
-echo "<br><br><hr>"
+//zad. 1
+    /*
+    użytkownik z formalarza wysyła dane: imie, nazwisko, miasto, wiek
+    zapisz dane w tablicy asocjacyjne (klucze nazwij jak powyżej)
+    Utwórz funkcję zawierającą heredoc i wyświetlającą informacje poniżej
+    Jesteś [imie] [nazwisko] masz [wiek] lat, mieszkasz w [miasto]
+     */
     ?>
-<form>
-    <input type="text" name="imie" placeholder="imie">
-    <input type="text" name="nazwisko" placeholder="nazwisko">
-    <input type="number" name="wiek" placeholder="wiek">
-    <input type="text" name="miasto" placeholder="miasto">
-    <input type="submit" name="przycisk">
 
-</form>
-<?php
-    if(isset($_GET['przycisk']) && !empty($_GET['imie']) && !empty($_GET['nazwisko']) && !empty($_GET['wiek']) && !empty($_GET['miasto'])){
-    $imie = $_GET['imie'];
-    $nazwisko = $_GET['nazwisko'];
-    $wiek = $_GET['wiek'];
-    $miasto = $_GET['miasto'];
+    <form>
+        <input type="text" name="i1" placeholder="imie">
+        <input type="text" name="n1" placeholder="nazwisko">
+        <input type="text" name="m" placeholder="miasto">
+        <input type="number" name="w" placeholder="wiek">
+        <input type="submit" name="p1">
+    </form>
+    <?php
 
-$pierdoly = array(
-    'imie' => $imie,
-    'nazwisko' => $nazwisko,
-    'wiek' => $wiek,
-    'miasto' => $miasto
-);
+        if (isset($_GET['p1']) && !empty($_GET['i1']) && !empty($_GET['n1']) && !empty($_GET['m']) && !empty($_GET['w'])){
+            $imie = $_GET['i1'];
+            $nazwisko = $_GET['n1'];
+            $miasto = $_GET['m'];
+            $wiek = $_GET['w'];
 
-function pierdola($i,$n,$w,$m){
-  echo <<<G
-  <b>jesteś $i $n masz $w lat, mieszkasz w $m
-G;
-}
+            function wys($a,$b,$c,$d){
+                echo <<<E
+                Jesteś $a $b masz $d lat, mieszkasz w $c
+E;
+            }
 
-    pierdola($pierdoly['imie'], $pierdoly['nazwisko'], $pierdoly['wiek'], $pierdoly['miasto']);
-    echo "<br>";
-    print_r($pierdoly);
-}
+            $daneUzytkownika = array(
+                'imie' => $imie,
+                'nazwisko' => $nazwisko,
+                'miasto' => $miasto,
+                'wiek' => $wiek
+            );
+            /*echo '<pre>';
+            echo print_r($daneUzytkownika);
+            echo '</pre>';*/
 
-    echo"<br><br><hr><br>";
-
-    ?>
-<!--    //zad 2 uzytkownik wprowadza przynajmniej 1 kolor na 3 mozliwe-->
-
-<form>
-    <input type="text" name="kolor1" placeholder="kolor1" pattern="[a-z]{3-20}">
-    <input type="text" name="kolor2" placeholder="kolor2"pattern="[a-z]{3-20}" >
-    <input type="text" name="kolor3" placeholder="kolor3" pattern="[a-z]{3-20}">
-    <input type="submit" name="przycisk1">
-
-</form>
-
-<?php
-
-    if(isset($_GET['przycisk1']) && !empty($_GET['kolor1']) || !empty($_GET['kolor2']) || !empty($_GET['kolor3'])){
-        $kolorki = [];
-
-            $k = !empty($_GET['kolor1']) ? 1:0;
-                if(!empty($_GET['kolor1']))
-                $kolorki[] = $_GET['kolor1'];
-            $k += !empty($_GET['kolor2']) ? 1:0;
-                if(!empty($_GET['kolor2']))
-                $kolorki[] = $_GET['kolor2'];
-            $k += !empty($_GET['kolor3']) ? 1:0; //+= sumuje sobie
-                if(!empty($_GET['kolor3']))
-                $kolorki[] = $_GET['kolor3'];
-        if($k >= 2)
-            echo "wprowadziles $k kolory<br>";
-        else
-            echo "wprowadziles $k kolor<br>";
-        foreach ($kolorki as $k => $d){
-            $x = ++$k;
-            echo "$x kolor: $d <br>";
-
-
+            wys($daneUzytkownika['imie'], $daneUzytkownika['nazwisko'], $daneUzytkownika['miasto'], $daneUzytkownika['wiek']);
         }
+    ?>
 
-}
+    <form>
+        <input type="text" name="k1" pattern="[ążśźęćńóła-z]{3,30}">
+        <input type="text" name="k2" pattern="[ążśźęćńóła-z]{3,30}">
+        <input type="text" name="k3" pattern="[ążśźęćńóła-z]{3,30}">
+        <input type="submit" name="p2"><br>
 
-?>
-<!--zad.1. uzytkownik wprowadza z klawiatury do tablicy sowje imie i nazwisko z formularza, oblicz ile lacznie znakow wprowadzil, jsli przekroczyl liczbe 20 to popros go o ponowne wprowadzenie danych, jesli wprowadzil prowaidlowo to sprawdz czy znajduja sie tam polskie znaki, oblicz ile ich jest,zmaien wszystkie znaki na male i zmien pierwsza litere na wielka
+        <?php
+            if(isset($_GET['p2']) && ($_GET['k1'] || $_GET['k2'] || $_GET['k3'])){
+                $t = [];
 
-zad2.napisz skrypt ktory bedzie wyswietlal liczbe dnw pozostalych do konca biezacego roku
+                    $l = !empty($_GET['k1']) ? 1 : 0;
+                        if(!empty($_GET['k1']))
+                            $t[] = $_GET['k1'];
+                    $l += !empty($_GET['k2']) ? 1 : 0; // $l = $l + ...
+                        if(!empty($_GET['k2']))
+                            $t[] = $_GET['k2'];
+                    $l += !empty($_GET['k3']) ? 1 : 0;
+                        if(!empty($_GET['k3']))
+                            $t[] = $_GET['k3'];
 
-zad3.napisz skrypt obliczajacy czas generowania strony w ktorej bedzie pętla wyswietlajaca wszystke liczby parzyste z przedizalu podanego przez uzytkownika z klawiatury
+                //echo $t[0];
+                if($l >= 2)
+                    echo "Wprowadziłeś $l kolory<br>";
+                else
+                    echo "Wprowadziłeś $l kolor<br>";
 
-zad.4 napisz sktpt obliczajacych liczbe elementow podzielnych przez 5 w tablicy y
-pisz ile ich i i
-zad 5 napisz skrypt w ktorym para podaje date swojego pierwszego spotkania wyswietl ile dni sa juz razem
-
--->
+                foreach ($t as $k => $w){
+                    $x = ++$k;
+                    echo "$x kolor: $w <br>";
+                }
+            }
+        ?>
+    </form>
 </body>
 </html>

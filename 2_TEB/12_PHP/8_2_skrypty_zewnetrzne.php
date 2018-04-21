@@ -1,6 +1,6 @@
 <?php
-echo 'Pierwszy plik';
-function test(){
+    echo 'Pierwszy plik';
+    function test(){
 
-}
+    }
 ?>

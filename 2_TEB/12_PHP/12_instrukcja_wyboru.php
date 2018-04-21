@@ -1,43 +1,42 @@
 <?php
-    $x = 2;
+    $x = 11;
     if($x == 1){
-        echo 'jeden';
+        echo 'Jeden';
     }else if($x == 2){
-        echo 'dwa';
+        echo 'Dwa';
     }else if($x == 3){
-        echo 'trzy';
+        echo 'Trzy';
     }else{
-        echo 'inna liczba';
+        echo 'Inna liczba';
     }
-    echo'<br><br>';
+
 //SWITCH
 
-switch($x){
-    case 1:
-        echo 'jeden';
-        break;
-    case 2:
-        echo 'dwa';
-        break;
-    case 3:
-        echo 'trzy';
-        break;
-    default:
-        echo 'Inna liczba';
-}
-echo '<br><br>';
+    switch($x){
+        case 1:
+            echo 'Jeden';
+            break;
+        case 2:
+            echo 'Dwa';
+            break;
+        case 3:
+            echo 'Trzy';
+            break;
+        default:
+            echo 'Inna liczba';
+    }
 
-$tekst = 'Janusz';
-switch($tekst){
-    case 'Anna':
-        echo 'Witaj Anna';
-        break;
-    case 'Janusz':
-        echo 'Witaj Janusz';
-        break;
-    default:
-        echo 'Witaj inny uzytkowniku';
+    $tekst = 'Janusz';
 
-}
+    switch($tekst){
+        case 'Anna':
+            echo 'Witaj Anna';
+            break;
+        case 'Janusz':
+            echo 'Witaj Janusz';
+            break;
+        default:
+            echo 'Witaj inny użytkowniku';
+    }
 
 ?>

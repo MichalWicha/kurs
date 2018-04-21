@@ -7,36 +7,32 @@
 <body>
    <?php
 
-########################### zmienne superglobalne ###############################################
+//zmienne superglobalne
 
-        echo $_SERVER['SERVER_PORT']."<br>";//80
-        echo $_SERVER['SCRIPT_NAME']."<br>";//sciezka folderu
-        echo $_SERVER['SERVER_PROTOCOL']."<br>";//protokol serwera
-        echo $_SERVER['DOCUMENT_ROOT']."<br>";//sciezka do htdocs
+        echo $_SERVER['SERVER_PORT']."<br>"; //80
+        echo $_SERVER['SCRIPT_NAME']."<br>"; ///git/kursy/2_TEB/12_PHP/18_zmienne_superglobalne.php
+        echo $_SERVER['SERVER_PROTOCOL']."<br>"; //HTTP/1.1
+        echo $_SERVER['DOCUMENT_ROOT']."<br>"; //C:/xampp/htdocs
 
         $plik = $_SERVER['DOCUMENT_ROOT'];
         $plik .= $_SERVER['SCRIPT_NAME'];
         echo $plik."<br>";
 
-################################# stałe predefiniowane ###########################################
+//stałe predefiniowane
 
         echo PHP_VERSION."<br>"; //7.2.3
         $ver = PHP_VERSION;
 
         if ($ver >= 7.2){
-            echo "Nowa wersja PHP";
-
+            echo "Nowa wersja php<br>";
         }else{
-            echo"stara wersja PHP";
+            echo "Stara wersja php<br>";
         }
 
-        echo "<br>";
-
         echo PHP_OS."<br>";
-        echo __LINE__."<br>"; //linia kodu
-        echo __FILE__."<br>"; // lokalizacja pliku
+        echo __LINE__."<br>";
+        echo __FILE__."<br>";
         echo __DIR__."<br>";
-
     ?>
 </body>
 </html>

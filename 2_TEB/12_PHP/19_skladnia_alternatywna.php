@@ -2,140 +2,140 @@
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
-    <title>Skladnia alternatywna</title>
+    <title>Składnia alternatywna</title>
 </head>
 <body>
     <?php
+    //instrukcja if
 
-####################################### instrukcja if ##########################################################
+        $x = 2;
+        $y = 4;
 
-    $x = 2;
-    $y = 4;
-
-    if ($x < $y){
-        echo "Zmienna x jest mniejsza od zmiennej y";
-    }
-
-    if ($x < $y):
-        echo "Zmienna x jest minejsza od zmiennej y";   //skladnia alternatywna
-    endif;                                              //kazde polecenie jest zakonczone endifem
-
-
-    ########################### instrukcja if else##############################
-
-      if ($x < $y){
-        echo "Zmienna x jest mniejsza od zmiennej y";
-    }else{
-          echo "Zmienna x nie jest mniejsza od zmiennej y";
-      }
-      if ($x < $y):
-        echo "Zmienna x jest mniejsza od zmiennej y";
-    else:
-          echo "Zmienna x nie jest mniejsza od zmiennej y";
-    endif;
-
-################################ instrukcja if else if ############################################
-   echo "<br>";
-if ($x < $y){
-        echo "Zmienna x jest mniejsza od zmiennej y";
-        }else if ($x == $y){
-          echo "Zmienna x jest rowna y";
-        }else{
-            echo"Zmiennax nie jest równa zmiennej y";
+        if ($x < $y){
+            echo "Zmienna x jest mniejsza od zmiennej y<br>";
         }
-    echo "<br>";
-if ($x < $y):
-        echo "Zmienna x jest mniejsza od zmiennej y";
-        elseif ($x == $y):                                  //else if musi byc pisane razem w skladni alternatywnej
-          echo "Zmienna x jest rowna y";
+
+        if ($x < $y):
+            echo "Zmienna x jest mniejsza od zmiennej y<br>";
+        endif;
+
+    //instrukcja if...else
+
+        if ($x < $y){
+            echo "Zmienna x jest mniejsza od zmiennej y<br>";
+        }else{
+            echo "Zmienna x nie jest mniejsza od zmiennej y<br>";
+        }
+
+        if ($x < $y):
+            echo "Zmienna x jest mniejsza od zmiennej y<br>";
         else:
-            echo"Zmiennax nie jest równa zmiennej y";
+            echo "Zmienna x nie jest mniejsza od zmiennej y<br>";
         endif;
 
-########################### instrukcja switch ###########################################
+    //instrukcja if...else...if
 
-    $a = 5;
+        if ($x < $y){
+            echo "Zmienna x jest mniejsza od zmiennej y<br>";
+        }else if ($x == $y){
+            echo "Zmienna x jest równa zmienna y<br>";
+        }else{
+            echo "Zmienna x nie jest mniejsza od zmiennej y<br>";
+        }
 
-    switch($a){
-        case 0:
-            echo "zmienna a==0<br>";
-            break;
-        case 5:
-            echo "zmienna a==5<br>";
-            break;
-        case 10:
-            echo "zmienna a==10<br>";
-            break;
-    }
+// elseif zapisać łącznie!!!!!!!!!
 
-    switch($a):
-        case 0:
-            echo "zmienna a==0<br>";
-            break;
-        case 5:
-            echo "zmienna a==5<br>";
-            break;
-        case 10:
-            echo "zmienna a==10<br>";
-            break;
-    endswitch;
+        if ($x < $y):
+            echo "Zmienna x jest mniejsza od zmiennej y<br>";
+        elseif ($x == $y):
+            echo "Zmienna x jest równa zmienna y<br>";
+        else:
+            echo "Zmienna x nie jest mniejsza od zmiennej y<br>";
+        endif;
 
-######################################## pętla for #########################################
+    //instrukcja switch
 
-    for ($i=0; $i<=5; $i++){
-        echo "$i";
-    }
-    echo "<br>";
-     for ($i=0; $i<=5;$i++):
-        echo "$i";
-    endfor;
-    echo"<br>";
-############################ pętla while ######################################
+        $a = 5;
 
-
-    $i = 2;
-    while($i <= 5){
-        echo "$i";
-        $i++;
-    }
-
-    while($i <= 15):
-        echo "$i";
-        $i++;
-    endwhile;
-
-############################### break, if, for ########################################
-
-    for($i=1;$i<10;$i++){
-        echo"Zmienna i wynosi:$i<br>";
-            if($i == 5){
+        switch($a){
+            case 0:
+                echo "Zmienna a==0<br>";
                 break;
-            }
-    }
-
-    for($i=1;$i<10;$i++):
-        echo"Zmienna i wynosi:$i<br>";
-            if($i == 5):
+            case 5:
+                echo "Zmienna a==5<br>";
                 break;
-            endif;
-    endfor;
+            case 10:
+                echo "Zmienna a==10<br>";
+                break;
+        }
 
-#################################### continue, if, for ###############################################
-    echo "<br><br>";
-        for($i=1;$i<10;$i++){
-            if($i == 5)
-                continue; //przechodzi do nastepnej linii, wiec nie wyswietli 5
+        switch($a):
+            case 0:
+                echo "Zmienna a==0<br>";
+                break;
+            case 5:
+                echo "Zmienna a==5<br>";
+                break;
+            case 10:
+                echo "Zmienna a==10<br>";
+                break;
+        endswitch;
+
+    //pętla for
+
+        for ($i=0; $i<=5; $i++){
             echo "$i ";
-    }
+        }
+
+        for ($i=0; $i<=5; $i++):
+            echo "$i ";
+        endfor;
+
+    //while
         echo "<br>";
-        for($i=1;$i<10;$i++):
-            if($i == 5):
-                continue;
-        endif;
+        $i = 2;
+        while($i <= 5){
             echo "$i ";
-    endfor;
+            $i++;
+        }
+
+        while($i <= 15):
+            echo "$i ";
+            $i++;
+        endwhile;
+
+    //break, if, for
+
+        for ($i=1; $i < 10; $i++){
+            echo "Zmienna i wynosi: $i <br>";
+                if($i == 5){
+                    break;
+                }
+        }
+
+        for ($i=1; $i < 10; $i++):
+            echo "Zmienna i wynosi: $i <br>";
+                if($i == 5):
+                    break;
+                endif;
+        endfor;
 
 
+    //continue, if, for
+
+        for ($i=1; $i < 10; $i++){
+                if($i == 5)
+                   continue;
+                echo "$i  ";
+        }
+
+
+        for ($i=1; $i < 10; $i++):
+                if($i == 5):
+                   continue;
+                endif;
+                    echo "$i  ";
+        endfor;
     ?>
 </body>
 </html>

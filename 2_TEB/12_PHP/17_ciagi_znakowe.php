@@ -2,161 +2,155 @@
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
-    <title>Ciagi znakowe</title>
+    <title>Ciągi znakowe</title>
 </head>
 <body>
-    <?php
+   <?php
         $liczba = 10;
-        $ciag ='test';
+        $ciag = 'test';
         $wiek = 25;
 
         $text1 = "\$liczba wynosi: $liczba";
         $text2 = "\$liczba wynosi: $liczba";
 
-############################# heredoc ################################################
+//heredoc
 
         $text3 = <<<"ID"
         Masz $wiek lat
 ID;
-    echo $text3;
-    echo "<br>";
 
-##################### nowdoc #############################################
+    echo $text3;
+
+//nowdoc
 
         $text4 = <<<'TEKST'
         Masz $wiek lat
 TEKST;
 
     echo $text4;
-    echo "<br>";
 
     echo <<<TEST
         Janusz $wiek
 TEST;
-    echo"<br>";
 
-    $s1 ='abc';
+    $s1 = 'abc';
     $s2 = 'def';
 
-    //s3$ = $s1 + $s2; //blad
-   // echo = $s3; //blad
+    //$s3 = $s1 + $s2; //błąd
+    //echo $s3; //błąd
 
     $s3 = $s1.$s2;
     echo $s3;
-    echo "<br>";
 
-    echo $s1,$s2,$wiek //najwolniejsza
+    echo $s1," ",$s2,$wiek;
 
-//szybkosc wyswietlania ciągów znakowych
-//heredoc ze zmienną - najszybsza metoda w PHP 7, pozniej cudzysłów, potem heredoc bezpośrednio, potem apostrof, najwolniejsza przecinek (pieciokrotnie wolniejsza od pozostalych)
+//szybkość wyświetlania ciągów znakowych
+
+//heredoc ze zmienną (najszybsza), cudzysłów, heredoc bezpośrednio, apostrof, przecinek (5-krotnie wolniejsza niż pozostałe)
     ?>
-
     <form>
-        <input type="text" name="kraj" placeholder="kraj">
+        <input type="text" name="kraj">
         <input type="number" name="wiek" placeholder="wiek">
         <input type="text" name="imie" placeholder="imie">
         <input type="submit" name="przycisk">
-
     </form>
-<?php
+        <?php
+            if (!empty($_GET['kraj'])){
+                $panstwo = $_GET['kraj'];
+            }else{
+                $panstwo = 'brak';
+            }
+            echo "Twój kraj: $panstwo<br>";
 
-    if (isset($_GET['kraj'])){
-        $panstwo = $_GET['kraj'];
-    }else{
-        $panstwo = 'brak';
-    }
+            $wiek = $_GET['wiek'] ?? 'brak';
+            echo "Twój wiek: $wiek";
 
-    echo "Twoj kraj: $panstwo<br>";
+            $imie = isset($_GET['imie']) ? $_GET['imie'] : 'brak imienia';
+            //$imie = isset($_GET['imie']) ?? $_GET['imie'] ?? 'brak imienia';
 
-    $wiek = $_GET['wiek'] ?? 'brak'; //?? - oznacza w przeciwnym razie, od PHP 7
-    echo "Twój wiek: $wiek";
+            echo "<br>Twoje imię: $imie";
 
-   $imie = isset($_POST['imie']) ? $_GET['imie'] : 'brak imienia'; //isset jeśli istnieje
-                                                                    // jeśli istnieje zmienna post to przypisz get a w przeciwnym razie brak imienia
+//spaceship
 
-    //$imie = isset($_POST['imie']) ?? $_GET['imie'] ?? 'brak imienia'; // czy istnieje i zwraca wartosc true albo false
-    echo "<br>Twoje imie: $imie";
+        $a = 'a';
+        $b = 'b';
 
-############################################### spaceship ####################################################
+        echo $a <=> $b; //-1
+        echo 'c' <=> 'c'; //0
+        echo 'd' <=> 'c'; //1
 
-    $a = 'a';
-    $b = 'b';
+//grawis, lewy apostrof
 
-    echo $a <=> $b; //a jest mniejsze ob wiec wynik -1
-    echo 'c' <=> 'c'; //0 bo są identyczne
-    echo 'd' <=>'c'; //1 bo d jest wieksze
-    echo "<br>";
+        //$polecenie = `dir /ah`;
+        $polecenie = `echo janusz > testttttttt.txt`;
+        //$polecenie = `attrib -h 7_1_wyswietlanie_danych.php`;
+        //echo $polecenie;
+        echo "<pre> $polecenie </pre>";
 
-################################## grawis, lewy apostrof ################################################
+#########################   nl2br()   ##########################
 
-    $polecenie = `dir /ah`; //wyswietla to co mozna w konsoli cmd razem z `, attrib ah pokazuje ukryte pliki
-                            //attrib -h odkrywa wszystko ukryte
-    //$polecenie = `echo janusz > test.txt`; // tworzy nowy plik
-    //echo $polecenie;
-    echo "<pre> $polecenie </pre>";
-    echo "<br>";
-
-################################## nl2br() ###############################################
-
-    $wiersz = <<<ID
-    Mam
-    na
-    imie
-    Janusz
+        $wiersz = <<<ID
+        Mam
+        na imię
+        Janusz
 ID;
 
-    echo "<h3>Przed uzyciem funkcji nl2br</h3>"; //nl2br - new line to break
-    echo $wiersz;
-    echo "<h3>Po uzyciu funkcji nl2br</h3>";
-    echo nl2br($wiersz);
-    echo "<br";
+        echo "<h3>Przed użyciem funkcji nl2br:</h3>";
+        echo $wiersz;
+        echo "<h3>Po użyciu funkcji nl2br:</h3>";
+        echo nl2br($wiersz);
 
-####################### funkcje zmieniajace wielkosc ######################################################
+##############   funkcje zmieniające wielkość liter   #################
 
-    $ciag = "maM nA iMię janUsZ";
-    echo $ciag; //lepiej tak zrobic brake niz "<br>".$ciag bo . to tez jakas operacja i zajmuje pamiec
-    echo "<br>";
-    $male = strtolower($ciag);
-    $duze = strtoupper($ciag);
-    $pierwszaDuza = strtolower($ciag);
-    $pierwszaDuza = ucfirst($pierwszaDuza);
-    $wyrazy = ucwords($pierwszaDuza);
+        $ciag = "maM nA iMię janUsZ<br>";
+        echo $ciag;
 
-    echo "<br>";
-    echo $wyrazy;
+        $male = strtolower($ciag);
+        $duze = strtoupper($ciag);
+        $pierwszaDuza = strtolower($ciag);
+        $pierwszaDuza = ucfirst($pierwszaDuza);
+        $wyrazy = ucwords($pierwszaDuza);
 
-    ?>
-    <!--//zad.1- uzytkownik podaje w formularzu swoje imie i nazwisko, zamien wszystkie dane na male litery a pierwsza na wielka litere, zabezpiecz przed brakiem podania danych,zabezpiecz przed blednymi danymi w polu text, ogranicz wprowadzanie danych do liter w imieniu (male lub duze) ogranicz wprowadzanie danych do liter i myslnika w nazwisku, wyswietl dane w formacie: imie:....,nazwisko:... np imie:Jan, nazwisko: Kowal imie max 15 znakow, nazwisko max 40 znakow-->
-    <form method="post">
-        <input type="text" name="imie1" placeholder="imie" pattern="([a-z]|[A-Z]){2,20}">
-        <input type="text" name="nazwisko1" placeholder="nazwisko" pattern="([a-z]|[A-Z]){2,20}(-{1}([a-z|[A-Z]]){2-20})?">
-        <input type="submit" name="guzik">
+        echo $wyrazy;
 
-    </form>
-    <?php
+//zad.1
 
-        $imie1 = $_POST['imie1'] ?? 'brak danych';
-        $nazwisko1 = $_POST['nazwisko1'] ?? 'brak danych';
-        $imie1 = ucfirst($imie1);
-        $nazwisko1 = ucfirst($nazwisko1);
-        echo "Twoje imie: $imie1 <br> Twoje nazwisko: $nazwisko1";
-        if (empty($_POST['imie1']) && empty($_POST['nazwisko1'])){
-            echo "<br><b>Brak danych!";
-        }
+  /*Użytkownik podaje w formularzu swoje imię i nazwisko
+  Dane wyślij bezpiecznie
+  Zabezpiecz przed brakiem  podania danych
+  Zabezpiecz przed błędnymi danymi w polu typu text
+  Ogranicz wprowadzanie danych do liter w imieniu (małe lub duże max. 20 znaków)
+  Ogranicz wprowadzanie danych do liter i myślnika w nazwisku (małe lub duże  max. 40 znaków)
+  Zamień wszystkie dane na małe litery a pierwszą na  dużą literę
 
+  Wyświetl dane w formacie: Imię: ....., nazwisko: .........
+  np. Imię: Jan, nazwisko: Kowal*/
+        ?>
 
-//    if (isset($_POST['imie']) && isset ($_POST['nazwisko'])){
-//        $imie = $_POST['imie'];
-//        $nazwisko= $_POST['nazwisko'];
-//        $imie = ucfirst($imie);
-//        $nazwisko = ucfirst($nazwisko);
-//        echo "imię: $imie nazwisko: $nazwisko";
-//        if (isset($_POST['imie']) && isset ($_POST['nazwisko']) == null){
-//            echo "Nic nie podales!";
-//        }
-//    }
+        <form method="post">
+           <!-- <input type="text" name="i" pattern="([a-z]|[A-Z]){2,20}">-->
+            <input type="text" name="i" pattern="([a-z]|[A-Z]){2,20}">
+            <!--<input type="text" name="n" pattern="[a-z]{2,20}">-->
+            <input type="text" name="n" pattern="([a-z]|[A-Z]){2,20}(-{1}([a-z]|[A-Z]){2,20})?">
+            <input type="submit" name="p">
+        </form>
+        <?php
+            if (isset($_POST['p']) && !empty($_POST['i']) && !empty($_POST['n'])){
+                //$i = !empty($_POST['i']) ? $_POST['i'] : 'brak danych';
+                //$n = !empty($_POST['n']) ? $_POST['n'] : 'brak danych';
 
+                $i = $_POST['i'];
+                $n = $_POST['n'];
 
-    ?>
+                $i = strtolower($i);
+                $i = ucfirst($i);
+                $n = strtolower($n);
+                $n = ucfirst($n);
+
+                echo "<br>Twoje imię: ".$i;
+                echo "<br>Twoje nazwisko: ".$n;
+            }
+
+        ?>
 </body>
 </html>

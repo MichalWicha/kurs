@@ -1,4 +1,8 @@
-.czerwony{
-    color: czerwony;
+.czerwony {
+    color: green;
+    font-weight: bold;
+}
 
+.niebieski{
+    color: blue;
 }
