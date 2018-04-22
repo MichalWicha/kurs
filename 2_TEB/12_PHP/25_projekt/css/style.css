@@ -1,0 +1,19 @@
+body {
+    width: 100%;
+}
+
+table, th, tr, td{
+    border: solid 1px #9d8686;
+    border-collapse: collapse;
+    padding: 15px;
+    text-align: center;
+}
+
+.tlo {
+    background-color: aliceblue;
+}
+
+#dodaj {
+    width: 20%;
+    background-color: aqua;
+}

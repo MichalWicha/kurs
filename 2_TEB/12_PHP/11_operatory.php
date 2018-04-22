@@ -1,19 +1,22 @@
 <?php
     //operatory arytmetyczne
-/*
+
     $x = 2;
     $y = 3;
-    $mnoezenie = $x * $y;
+
+    $mnozenie = $x * $y;
     $potegowanie = $x ** $y; //8
     $potegowanie = 2 ** 10; //1024
-    $dzielenie = $x / $y; //0.66666666667
+    $dzielenie = $x / $y; //0.66666666666667
     $dzielenie = round($dzielenie,2); //0.67
     $dodawanie = $x + $y; //5
     $odejmowanie = $x - $y; //-1
-    $modulo = $x % $y; //2
-*/
-//inkrementacja dekremantacja
-/*
+    $modulo = $x % $y;
+
+    //echo $modulo;
+
+//inkrementacja dekrementacja
+
     $x = 2;
     echo $x++; //2
     echo ++$x; //4
@@ -24,56 +27,54 @@
     echo $y; //6
     echo ++$y; //7
 
-*/
-//operatory logiczne
+    echo '<br><br>';
 
+//operatory logiczne
 //and or xor ! && ||
 
-//zad 1 
+//zad. 1
 //sprawdz czy w sklepie kupisz rower
 
-
-$sklep = 'otwarty';
+$sklep = 'zamknięty';
 $pieniadze = 1800;
 $rower = true;
 
-    if($sklep == 'otwarty' && $pieniadze > 1000 && $rower)
-    {
-        echo 'kupiles rower<br>';
+    if($sklep == 'otwarty' && $pieniadze > 1000 && $rower){
+        echo 'Kupiłeś rower';
     }else{
-        echo 'nie kupiles roweru idz pieszo';
+        echo 'Idź pieszo';
     }
 
-//zad 2 
-//uzytkowanik chce kupic rower lub hulajnoge
+    echo '<br>';
+
+//zad. 2
+//Użytkownić chce kupić rower lub hulajnogę
 
 $sklep = true;
-$pieniadze = 2500;
+$pieniadze = 1401;
 $rower = true;
 $hulajnoga = true;
 
-if($sklep && $pieniadze > 2000 && $rower)
-{
-    echo 'JESTES BOGATY !';
-}else{
-    echo 'nie stac cie na rower biedaku :(';
-    echo '<br>kup sobie hulajnoge!';
-}if
-($sklep =='true' && $pieniadze > 200 && $hulajnoga){
-    echo '<br>kupiles sobie hulajnoge boagczu !';
-}else{
-    echo 'jestes totalnym biedakiem, nie stac cie na hulajnoge! :(';
-}
+    if($sklep && $pieniadze > 1400 && ($rower && $hulajnoga)){
+        echo 'Kupiłeś rower i hulajnogę';
+    }else if($rower && $sklep && $pieniadze > 900)
+        echo 'Kupiłeś rower';
+    else if($hulajnoga && $sklep && $pieniadze > 500)
+        echo 'Kupiłeś hulajnogę';
+    else{
+        echo 'Idź pieszo';
+    }
 
     echo '<br><br>';
-//operatory relacyjne
 
-// ==, ===, <>, !=, !==, >, <, >=, <= , <=>
+//operatory relacyjne
+// ==, ===, <>, !=, !==, >, <, >=, <=, <=>
 
     $a = 1;
     $b = 2;
     $c = '1';
     $d = 1;
+
     $wynik = $a == $c; //1
     $wynik = $a === $c; //false
     $wynik = $a === $d; //1
@@ -86,100 +87,101 @@ if($sklep && $pieniadze > 2000 && $rower)
     $wynik = $a >= $b; //false
     $wynik = $a < $b; //1
     $wynik = $a <= $b; //1
-    $wynik = $a <=> $b; //1
 
-//od PHP 7
-// <=> operator spaceship
-//-1 pierwsza wartosc jest mniejsza od drugiej
-//0 wartosci sa rowne
-//1 pierwsza wartosc jest wieksza od drugiej
+//  od php 7
+//  <=>  spaceship operator
+//-1  pierwsza wartość jest  mniejsza od drugiej
+//0   wartości są równe
+//1   pierwsza wartość jest większa od drugiej
 
-$a = 2;
-$b = 10;
-$wynik = $a <=> $b;
+    $a = 15;
+    $b = 10;
+    $wynik = $a <=> $b;
 
-//echo gettype($c);
+    //echo gettype($c);
+    //echo $wynik.'<br><br>';
 
-//echo $wynik'<br>';
-######################################################################################
+####################################################
 
-$x = null;
-$y = 'test';
-$z = 5;
+    $x = null;
+    $y = 'test';
+    $z = 5;
 
-$wynik = $x ?? $y ?? $z;
-echo $wynik;
+    $wynik = $x ?? $y ?? $z;
+    echo $wynik."<br>";
 
-//operartor lancuchowy
+####################################################
 
-$tekst1 = 'Jan';
-$tekst2 = 'Kowal';
-echo $tekst1.'<br>'.$tekst2.'<br>';
-echo $tekst1,'jan';
+//operator łańcuchowy
+
+    $tekst1 = 'Jan';
+    $tekst2 = 'Kowal';
+    echo $tekst1.' '.$tekst2.'<br>';
+    echo $tekst1,'jan<br>';
+
 //operatory przypisania
 // =, +=, -=, *=, /=, %=, .=
-//istnieja rowniez operatory bitowe
+//istnieją również operatory bitowe
 
-$a = 5;
-echo gettype($a);//integar
-$a = '';
-echo gettype($a);//string
-$b = 10;
-echo gettype($b); // integer
-$a += $b; //15 // $a = $a + $b
-$b .= $a; // $b 10 + 15 = 1015
+    $a = 5;
+    echo gettype($a); //integer
+    $a .= '';
+    echo gettype($a); //string
+    $b = 10;
+    echo gettype($b); //integer
+    $a += $b; //15 $a = $a + $b
+    $b .= $a; // $b = 10 + 15 = 1015
 
-echo $b;
-echo gettype($b); // string
-echo '<br><br>';
+    echo $b;
+    echo gettype($b); //string
+    echo '<br><br>';
 
-#######################################################
+##################################################
+
 //operator warunkowy
 
     $x = 5;
-    $wynik = ($x > 2)?' x wieksze od 2':'x nie jest wieksze od 2';
+    $wynik = ($x > 2)?'x większe od 2':'x nie jest większe od 2';
 
     if($x > 2)
-        echo 'x wieksze od 2';
-else
-    echo 'x nie jest wieksze od 2';
+        echo 'x większe od 2';
+    else
+        echo 'x nie jest większe od 2';
 
-echo 'x nie jest wieksze od 2';
-echo $wynik.'<br><br>';
+    echo $wynik.'<br><br>';
 
-######################################################
+####################################################
 
-//operatory rzutowania(konwersji typow)
-//int integer, float double real, bool boolean, string, array
-//object, unset
+//operatory rzutowania (konwersji typów)
+//int integer, float double real, bool boolean, string, array, //object, unset
 
     $x = '2';
     echo gettype($x); //string
     $x = (int)$x;
     echo gettype($x); //intege
     $x = (double)$x;
-    echo gettype($x); //doblue
+    echo gettype($x); //double
     $x = (unset)$x;
-    echo gettype($x);//NULL
-
+    echo gettype($x); //NULL
     echo '<br><br>';
-//Priorytet operatorow
 
-//&& ma wiekszy priorytet niz AND
-//|| ma wiekszy priorytet niz OR
+//Priorytet operatorów
 
-##################################################################
+//&& ma większy priorytet niż AND
+//|| ma większy priorytet niż OR
 
-//konwersja typow
+##############################################################
+
+//konwersja typów
 
     $napis = 'Janusz';
     echo gettype($napis);
 
-    $napis = '10';
+    $napis = 10;
     echo gettype($napis);
 
 //funkcje konwersji
-// intwal(), floatval(), doubleval(), stringval(), boolval()
+//intval(), floatval(), doubleval(), strval(), boolval()
 
     $liczba = 2.5;
     //$liczba = (int)$liczba;
@@ -189,8 +191,9 @@ echo $wynik.'<br><br>';
 //settype()
 
     $liczba1 = 10.5;
-    settype($liczba1,"int");
-    echo $liczba.gettype($liczba);
+    if(settype($liczba1,"int"))
+        echo 'Poprawna konwersja na typ całkowity';
+    echo gettype($liczba1);
 
     $liczba2 = 5;
     settype($liczba2,'double');
